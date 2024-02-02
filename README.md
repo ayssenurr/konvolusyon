@@ -12,18 +12,17 @@ void printMatrix(float matrix[][100], int row, int col) {
 void applyConvolution(int G[][100], float F[][3], float R[][100], int M, int N, int k) {
     float filterSum = 0.0;;
 
-    // Filtre matrisinin toplamını hesapla
+
     for(int i = 0; i < k; i++) {
         for (int j = 0; j < k; j++) {
             filterSum += F[i][j];
         }
     }
 
-    // Konvolüsyon işlemini uygula ve sonucu ekrana yazdır
-    for (int i = 0; i <= M - k; i++) {
-        for (int j = 0; j <= N - k; j++) {
+    for  (int i = 0; i <= M - k; i++) {
+        for  (int j = 0; j <= N - k; j++) {
             float   sum = 0.0;
-            for (int x = 0; x < k; x++) {
+            for(int x = 0; x < k; x++) {
                 for (int y = 0; y < k; y++) {
                     sum += G[i + x][j + y] * F[x][y];
                 }
@@ -62,7 +61,6 @@ int main() {
         }
     }
 
-    // Konvolüsyon işlemini uygula ve sonucu ekrana yazdır
     applyConvolution(G, F, R, M, N, k);
 
     printf("Sonuc Matrisi:\n");
